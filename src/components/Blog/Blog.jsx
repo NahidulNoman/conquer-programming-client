@@ -34,8 +34,17 @@ const Blog = () => {
         2. Redirect user to the route they wanted to go before login.
         </p>
       </div>
-      <div>
-        
+      <div className="shadow-lg p-3 rounded mb-5">
+        <h3>What is Node?</h3>
+        <p>
+        Node.js is a JavaScript runtime for building server-side or desktop applications. Node.js is an open source server environment, Node.js is free, it runs on various platforms (Windows, Linux, Unix, Mac OS X, etc.) and it uses JavaScript on the server. As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications.
+        </p>
+      </div>
+      <div className="shadow-lg p-3 rounded mb-5">
+        <h3>How does Node work?</h3>
+        <p>
+        Node.js is an open-source backend javascript runtime environment. It is a used as backend service where javascript works on the server-side of the application. This way javascript is used on both frontend and backend. Node.js runs on chrome v8 engine which converts javascript code into machine code, it is highly scalable, lightweight, fast, and data-intensive. Node.js is an event loop single-threaded language.  Thread is a sequence of instructions that the server needs to perform. It runs parallel on the server to provide the information to multiple clients. Node.js accepts the request from the clients and sends the response, while working with the request node.js handles them with a single thread. To operate I/O operations or requests node.js use the concept of threads.
+        </p>
       </div>
     </div>
   );
