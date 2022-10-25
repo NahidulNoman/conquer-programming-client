@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/UserContext";
 
 const NavBar = () => {
+  const {user} = useContext(AuthContext);
+  
   return (
     <nav className="navbar navbar-expand-lg bg-light p-3 shadow-lg">
       <div className="container">

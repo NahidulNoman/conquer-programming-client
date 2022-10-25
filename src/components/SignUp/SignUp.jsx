@@ -1,11 +1,14 @@
 import React from "react";
+import { useContext } from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/UserContext";
 
 const SignUp = () => {
   const [errors, setErrors] = useState("");
+  const {createUser,withGoogle,withGitHub} = useContext(AuthContext);
 
   const handlerSubmit = (e) => {
     e.preventDefault();
@@ -15,13 +18,51 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(name, email, password, photoUrl);
+
+    createUser(email,password)
+    .then(result => {
+      setErrors('')
+      const user = result.user
+      console.log(user)
+    })
+    .catch(error => {
+      const errorMessage = error.message;
+      setErrors(errorMessage)
+      console.log(error)
+    })
+  };
+  // sign in with google
+  const handlerGoogle = () => {
+    withGoogle()
+    .then(result => {
+      const user = result.user
+      console.log(user)
+    })
+    .catch(error => {
+      const errorMessage = error.message;
+      setErrors(errorMessage)
+      console.log(error)
+    })
+  };
+  // sign in with github 
+  const handlerGithub = () => {
+    withGitHub()
+    .then(result => {
+      const user = result.user
+      console.log(user)
+    })
+    .catch(error => {
+      const errorMessage = error.message;
+      setErrors(errorMessage)
+      console.log(error)
+    })
   };
 
   return (
     <div className="w-50 mx-auto mt-5">
       <h2 className="text-center text-success fw-bold">Sign Up</h2>
       <p className="mt-3 text-center text-danger">
-        <small></small>
+        <small>{errors}</small>
       </p>
       <Form onSubmit={handlerSubmit}>
         <Form.Group className="mb-3" controlId="formBasicName">
@@ -67,12 +108,12 @@ const SignUp = () => {
         </p>
         <div className="d-flex">
           <p className="me-3">
-            <small>
+            <small onClick={handlerGoogle}>
               Log In with <Link>GooGle</Link>
             </small>
           </p>
           <p>
-            <small>
+            <small onClick={handlerGithub}>
               Log In with <Link>GitHub</Link>
             </small>
           </p>
