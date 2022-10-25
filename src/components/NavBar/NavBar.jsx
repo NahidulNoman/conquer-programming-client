@@ -1,11 +1,19 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/UserContext";
-import Image from 'react-bootstrap/Image'
+import Image from 'react-bootstrap/Image';
+import { FaMoon, FaSun } from "react-icons/fa";
+import { useState } from "react";
 
 const NavBar = () => {
   const {user} = useContext(AuthContext);
+  const [toggle , setToggle] = useState(false);
   console.log(user)
+
+  const handlerToggle = () => {
+    setToggle(!toggle)
+  }
+
   return (
     <nav className="navbar navbar-expand-lg bg-light p-3 shadow-lg">
       <div className="container">
@@ -47,6 +55,25 @@ const NavBar = () => {
                 SAQ
               </Link>
             </li>
+
+           <span onClick={handlerToggle}>
+           {
+              toggle ? <li className="nav-item">
+              <span className="nav-link fw-semibold">
+              <FaMoon ></FaMoon>
+              </span>
+            </li> :
+              <li className="nav-item">
+              <span  className="nav-link fw-semibold">
+              <FaSun ></FaSun>
+              </span>
+            </li>
+            }
+           </span>
+
+            
+            
+
             <li className="nav-item">
               {
                user?.photoURL ? <Image title={user.displayName} style={{height : '40px'}} roundedCircle className="ms-3" src={user.photoURL} alt="" /> : 

@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../components/Blog/Blog";
 import Courses from "../components/Courses/Courses";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
 import FAQ from "../components/FAQ/FAQ";
 import LogIn from "../components/LogIn/LogIn";
 import SignUp from "../components/SignUp/SignUp";
@@ -10,6 +11,7 @@ export const router = createBrowserRouter([
     {
         path : '/',
         element : <Main></Main>,
+        errorElement : <ErrorPage></ErrorPage> ,
         children : [
             {
                 path : '/courses',
@@ -34,3 +36,7 @@ export const router = createBrowserRouter([
         ]
     }
 ])
+
+
+// "start": "node index.js",
+//     "startDev": "nodemon index.js",
