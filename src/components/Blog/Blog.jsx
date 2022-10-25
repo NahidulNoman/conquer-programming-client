@@ -20,7 +20,23 @@ const Blog = () => {
         Thanks to Firebase's easy-to-use SDK, ready-made UI libraries, and backend services, it is possible to set up the whole authentication process in just a couple of minutes. Firebase allows users to authenticate with their phone number, email, Google, and Facebook accounts (more options can be found here).
         </p>
       </div>
-      
+      <div className="shadow-lg p-3 rounded mb-5">
+        <h3>What other options do you have to implement authentication?</h3>
+        <p>
+        Auth0, MongoDB, Passport, Okta, are the most popular alternatives and competitors to Firebase Authentication.
+        </p>
+      </div>
+      <div className="shadow-lg p-3 rounded mb-5">
+        <h3>How does the private route work?</h3>
+        <p>
+        The private route component is similar to the public route, the only change is that redirect URL and authenticate condition. If the user is not authenticated he will be redirected to the login page and the user can only access the authenticated routes If he is authenticated (Logged in). <br />
+        1. only allow authenticated user to visit the route. <br />
+        2. Redirect user to the route they wanted to go before login.
+        </p>
+      </div>
+      <div>
+        
+      </div>
     </div>
   );
 };
