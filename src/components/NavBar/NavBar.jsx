@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/UserContext";
+import Image from 'react-bootstrap/Image'
 
 const NavBar = () => {
   const {user} = useContext(AuthContext);
-  
+  console.log(user)
   return (
     <nav className="navbar navbar-expand-lg bg-light p-3 shadow-lg">
       <div className="container">
@@ -47,9 +48,12 @@ const NavBar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link fw-semibold" to="/login" title="LogIn">
+              {
+               user?.photoURL ? <Image title={user.displayName} style={{height : '40px'}} roundedCircle className="ms-3" src={user.photoURL} alt="" /> : 
+               <Link className="nav-link fw-semibold" to="/login" title="LogIn">
                 Log In
               </Link>
+              }
             </li>
           </ul>
         </div>

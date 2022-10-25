@@ -8,7 +8,7 @@ import { AuthContext } from "../../context/UserContext";
 
 const SignUp = () => {
   const [errors, setErrors] = useState("");
-  const {createUser,withGoogle,withGitHub} = useContext(AuthContext);
+  const {createUser,withGoogle,withGitHub,setUser} = useContext(AuthContext);
 
   const handlerSubmit = (e) => {
     e.preventDefault();
@@ -22,6 +22,7 @@ const SignUp = () => {
     createUser(email,password)
     .then(result => {
       setErrors('')
+      setUser(result)
       const user = result.user
       console.log(user)
     })
@@ -59,7 +60,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="w-50 mx-auto mt-5">
+    <div className="w-75 mx-auto mt-5">
       <h2 className="text-center text-success fw-bold">Sign Up</h2>
       <p className="mt-3 text-center text-danger">
         <small>{errors}</small>

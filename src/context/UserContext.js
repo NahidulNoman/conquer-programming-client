@@ -39,6 +39,7 @@ const UserContext = ({children}) => {
 
     const authInfo = {
         user,
+        setUser,
         createUser,
         signInUser,
         withGoogle,

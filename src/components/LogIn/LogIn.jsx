@@ -55,7 +55,7 @@ const LogIn = () => {
   };
 
   return (
-    <div className="w-50 mx-auto mt-5">
+    <div className="w-75 mx-auto mt-5">
       <h2 className="text-center text-success fw-bold">Log In</h2>
       <p className="mt-3 text-center text-danger">
         <small>{errors}</small>
