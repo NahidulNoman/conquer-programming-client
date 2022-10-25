@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ShowCartCourse = ({ cartCourse }) => {
-  const { img, courseDuration, courseName, level, rating, price } = cartCourse;
+  const { img, courseDuration, courseName, level,id, rating, price } = cartCourse;
   return (
     <div>
       <div className="card mb-3" style={{ maxWidth: "540px" }}>
@@ -18,7 +19,7 @@ const ShowCartCourse = ({ cartCourse }) => {
                 <p className="m-0">Course Duration : {courseDuration}</p>
                 <p className="m-0">Course Rating : {rating}</p>
               </p>
-              <button className="btn btn-primary m-0">BUY COURSE</button>
+              <Link to={`/courseDetails/${id}`}><span className="btn btn-primary m-0">BUY COURSE</span></Link>
             </div>
           </div>
         </div>

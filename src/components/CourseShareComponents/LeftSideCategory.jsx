@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
+import { Link } from "react-router-dom";
+import './css/leftSide.css';
 
 const LeftSideCategory = () => {
   const [category, setCategory] = useState([]);
@@ -17,7 +19,7 @@ const LeftSideCategory = () => {
       {category.map((perItem) => (
         <ListGroup key={perItem.id} className='mb-3 text-center'>
           <ListGroup.Item action variant="success" className="fw-semibold">
-            {perItem.category_name}
+           <span className="list"><Link to={`/courseDetails/${perItem.id}`}>{perItem.category_name}</Link></span>
           </ListGroup.Item>
         </ListGroup>
       ))}

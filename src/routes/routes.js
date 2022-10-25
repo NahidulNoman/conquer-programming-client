@@ -1,5 +1,7 @@
+import { async } from "@firebase/util";
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../components/Blog/Blog";
+import CourseDetails from "../components/CourseShareComponents/CourseDetails";
 import Courses from "../components/CourseShareComponents/Courses";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import FAQ from "../components/FAQ/FAQ";
@@ -34,7 +36,9 @@ export const router = createBrowserRouter([
                 element : <SignUp></SignUp>
             },
             {
-               
+              path : '/courseDetails/:id',
+              loader : async({params})=> fetch(`http://localhost:5000/courseDetails/${params.id}`) ,
+              element : <CourseDetails></CourseDetails>
             }
         ]
     }

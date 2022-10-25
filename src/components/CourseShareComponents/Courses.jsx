@@ -5,11 +5,11 @@ import RightSideDetails from './RightSideDetails';
 const Courses = () => {
     return (
        <div className='container'>
-         <div className='row'>
-            <div className='col-4'>
+         <div className='row flex-column flex-lg-row'>
+            <div className='col-lg-4 col-sm-12'>
                 <LeftSideCategory></LeftSideCategory>
             </div>
-            <div className='col-8'>
+            <div className='col-lg-8 col-sm-12'>
                 <RightSideDetails></RightSideDetails>
             </div>
         </div>
