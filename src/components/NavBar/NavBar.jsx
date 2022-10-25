@@ -2,13 +2,12 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/UserContext";
 import Image from 'react-bootstrap/Image';
-import { FaMoon, FaSun } from "react-icons/fa";
+import { FaMoon, FaSun,FaDev } from "react-icons/fa";
 import { useState } from "react";
 
 const NavBar = () => {
   const {user} = useContext(AuthContext);
   const [toggle , setToggle] = useState(false);
-  console.log(user)
 
   const handlerToggle = () => {
     setToggle(!toggle)
@@ -17,8 +16,8 @@ const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-light p-3 shadow-lg">
       <div className="container">
-        <Link className="navbar-brand fw-bold" to="/">
-          ConQuer ProgrAmming
+        <Link className="navbar-brand fw-semibold" to="/">
+         <span className="fs-2 "><FaDev></FaDev></span> ConQuer.Dev
         </Link>
         <button
           className="navbar-toggler"

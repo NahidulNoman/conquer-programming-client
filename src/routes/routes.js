@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../components/Blog/Blog";
-import Courses from "../components/Courses/Courses";
+import Courses from "../components/CourseShareComponents/Courses";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import FAQ from "../components/FAQ/FAQ";
 import LogIn from "../components/LogIn/LogIn";
@@ -32,6 +32,9 @@ export const router = createBrowserRouter([
             {
                 path : '/signUp',
                 element : <SignUp></SignUp>
+            },
+            {
+               
             }
         ]
     }
