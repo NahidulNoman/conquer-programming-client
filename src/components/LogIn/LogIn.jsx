@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { FaArrowAltCircleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/UserContext";
 
@@ -55,14 +56,14 @@ const LogIn = () => {
   };
 
   return (
-    <div className="w-75 mx-auto mt-5">
-      <h2 className="text-center text-success fw-bold">Log In</h2>
+    <div className="w-75 mx-auto mt-5 shadow-lg p-3 rounded-4">
+      <h2 className="text-center text-success fw-bold">Log In <FaArrowAltCircleRight></FaArrowAltCircleRight></h2>
       <p className="mt-3 text-center text-danger">
         <small>{errors}</small>
       </p>
       <Form onSubmit={handlerSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label className="fw-semibold">Email address</Form.Label>
           <Form.Control
             name="email"
             type="email"
@@ -72,31 +73,31 @@ const LogIn = () => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label className="fw-semibold">Password</Form.Label>
           <Form.Control
             name="password"
             type="password"
             placeholder="Password"
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Log In
+        <Button variant="primary" type="submit" className="fw-semibold">
+          LOG IN
         </Button>
       </Form>
       <div className="mt-3 d-flex">
         <p className="me-3">
-          <small>
+          <small className="fw-semibold opacity-75">
             New This Site.<Link to="/signUp">Sign Up</Link>
           </small>
         </p>
         <div className="d-flex">
           <p className="me-3">
-            <small onClick={handlerGoogle}>
+            <small onClick={handlerGoogle}  className="fw-semibold opacity-75">
               Log In with <Link>GooGle</Link>
             </small>
           </p>
           <p>
-            <small onClick={handlerGithub}>
+            <small onClick={handlerGithub}  className="fw-semibold opacity-75">
               Log In with <Link>GitHub</Link>
             </small>
           </p>

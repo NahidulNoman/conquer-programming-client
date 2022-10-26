@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../components/Blog/Blog";
+import CheckOut from "../components/CourseShareComponents/CheckOut";
 import CourseDetails from "../components/CourseShareComponents/CourseDetails";
 import Courses from "../components/CourseShareComponents/Courses";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import FAQ from "../components/FAQ/FAQ";
+import Home from "../components/Home/Home";
 import LogIn from "../components/LogIn/LogIn";
 import SignUp from "../components/SignUp/SignUp";
 import Main from "../layout/Main";
@@ -14,6 +16,10 @@ export const router = createBrowserRouter([
         element : <Main></Main>,
         errorElement : <ErrorPage></ErrorPage> ,
         children : [
+            {
+                path : '/',
+                element : <Home></Home>
+            },
             {
                 path : '/courses',
                 element : <Courses></Courses>
@@ -36,8 +42,12 @@ export const router = createBrowserRouter([
             },
             {
               path : '/courseDetails/:id',
-              loader : async({params})=> fetch(`http://localhost:5000/courseDetails/${params.id}`) ,
+              loader : async({params})=> fetch(`https://conquer-programming-server.vercel.app/courseDetails/${params.id}`) ,
               element : <CourseDetails></CourseDetails>
+            },
+            {
+                path : '/checkOut/:id',
+                element : <CheckOut></CheckOut>
             }
         ]
     }

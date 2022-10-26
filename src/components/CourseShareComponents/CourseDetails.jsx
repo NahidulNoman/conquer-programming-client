@@ -1,12 +1,12 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Image } from "react-bootstrap";
 
 const CourseDetails = () => {
   const detailsCourse = useLoaderData();
-  const { courseTittle, description, enrolled,courseName, img, topic } = detailsCourse;
+  const { courseTittle, description, enrolled,courseName,id, img, topic } = detailsCourse;
   return (
     <div className="container mt-5 mb-5">
       <Card className="">
@@ -22,7 +22,7 @@ const CourseDetails = () => {
             }
           </Card.Text>
         </Card.Body>
-          <Button variant="primary" className="w-25 m-3">Get Premium Access</Button>
+          <Link to={`/checkOut/${id}`}><Button variant="primary" className="w-25 m-3">Get Premium Access</Button></Link>
         <Card.Footer className="text-muted">2 days ago</Card.Footer>
       </Card>
     </div>

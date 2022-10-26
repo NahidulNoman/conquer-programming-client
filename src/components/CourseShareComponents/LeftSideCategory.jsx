@@ -9,7 +9,7 @@ const LeftSideCategory = () => {
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/courseCategory")
+    fetch("https://conquer-programming-server.vercel.app/courseCategory")
       .then((res) => res.json())
       .then((data) => setCategory(data));
   }, []);

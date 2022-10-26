@@ -3,6 +3,7 @@ import React from "react";
 const Blog = () => {
   return (
     <div className="container mt-5">
+     <h2 className="text-center m-5">Now Find Your Answers</h2>
       <div className="shadow-lg p-3 rounded mb-5">
         <h3 className="">What is cors?</h3>
         <p>
@@ -13,7 +14,7 @@ const Blog = () => {
             a different port <br />
         </p>
       </div>
-      <div className="shadow-lg p-3 rounded mb-3">
+      <div className="shadow-lg p-3 rounded mb-5">
         <h3 >Why are you using Firebase?</h3>
         <p>
         Firebase helps to develop high-quality apps, grow user base, and earn more money. Each feature works independently, and they work even better together. Firebase provides detailed documentation and cross-platform SDKs to help you build and ship apps on Android, iOS, the web, C++, and Unity. <br />

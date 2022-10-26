@@ -7,7 +7,7 @@ const RightSideDetails = () => {
     const [course , setCourse] = useState([]);
 
     useEffect( () => {
-        fetch('http://localhost:5000/details')
+        fetch('https://conquer-programming-server.vercel.app/details')
         .then(res => res.json())
         .then(data => setCourse(data))
     } ,[])

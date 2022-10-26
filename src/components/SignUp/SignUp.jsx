@@ -3,12 +3,13 @@ import { useContext } from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { FaCheckCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/UserContext";
 
 const SignUp = () => {
   const [errors, setErrors] = useState("");
-  const {createUser,withGoogle,withGitHub,setUser} = useContext(AuthContext);
+  const {createUser,withGoogle,withGitHub,setUser,userUpdateInfo} = useContext(AuthContext);
 
   const handlerSubmit = (e) => {
     e.preventDefault();
@@ -23,13 +24,30 @@ const SignUp = () => {
     .then(result => {
       setErrors('')
       setUser(result)
+      updateUser(name,photoUrl)
       const user = result.user
       console.log(user)
     })
     .catch(error => {
       const errorMessage = error.message;
-      setErrors(errorMessage)
       console.log(error)
+      setErrors(errorMessage)
+    })
+  };
+  // user profile and name update info
+  const updateUser = (name,photoUrl) => {
+    const profile = {
+      displayName : name,
+      photoURL : photoUrl
+    };
+    userUpdateInfo(profile)
+    .then(result => {
+      setUser(result)
+      // console.log(result.user)
+    })
+    .catch(error => {
+      const errorMessage = error.message;
+      setErrors(errorMessage)
     })
   };
   // sign in with google
@@ -41,8 +59,8 @@ const SignUp = () => {
     })
     .catch(error => {
       const errorMessage = error.message;
-      setErrors(errorMessage)
       console.log(error)
+      setErrors(errorMessage)
     })
   };
   // sign in with github 
@@ -54,24 +72,24 @@ const SignUp = () => {
     })
     .catch(error => {
       const errorMessage = error.message;
-      setErrors(errorMessage)
       console.log(error)
+      setErrors(errorMessage)
     })
   };
 
   return (
-    <div className="w-75 mx-auto mt-5">
-      <h2 className="text-center text-success fw-bold">Sign Up</h2>
+    <div className="w-75 mx-auto mt-5 shadow-lg p-3 rounded-4">
+      <h2 className="text-center text-success fw-bold">Sign Up <FaCheckCircle></FaCheckCircle></h2>
       <p className="mt-3 text-center text-danger">
         <small>{errors}</small>
       </p>
       <Form onSubmit={handlerSubmit}>
         <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Label>Your Name</Form.Label>
+          <Form.Label className="fw-semibold">Your Name</Form.Label>
           <Form.Control name="name" type="text" placeholder="Enter name" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPhoto">
-          <Form.Label>Photo URL</Form.Label>
+          <Form.Label className="fw-semibold">Photo URL</Form.Label>
           <Form.Control
             name="photoUrl"
             type="text"
@@ -79,7 +97,7 @@ const SignUp = () => {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label className="fw-semibold">Email address</Form.Label>
           <Form.Control
             name="email"
             type="email"
@@ -89,7 +107,7 @@ const SignUp = () => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label className="fw-semibold">Password</Form.Label>
           <Form.Control
             name="password"
             type="password"
@@ -97,24 +115,24 @@ const SignUp = () => {
             required
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Sign Up
+        <Button variant="primary" type="submit" className="fw-semibold">
+          SIGN UP
         </Button>
       </Form>
       <div className="mt-3 d-flex">
         <p className="me-3">
-          <small>
+          <small className="fw-semibold opacity-75">
             Have a Account.<Link to="/login">Log In</Link>
           </small>
         </p>
         <div className="d-flex">
           <p className="me-3">
-            <small onClick={handlerGoogle}>
+            <small onClick={handlerGoogle} className="fw-semibold opacity-75">
               Log In with <Link>GooGle</Link>
             </small>
           </p>
           <p>
-            <small onClick={handlerGithub}>
+            <small onClick={handlerGithub} className="fw-semibold opacity-75">
               Log In with <Link>GitHub</Link>
             </small>
           </p>
