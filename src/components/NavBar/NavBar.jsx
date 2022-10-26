@@ -46,6 +46,11 @@ const NavBar = () => {
         >
           <ul className="navbar-nav">
             <li className="nav-item">
+              <Link className="nav-link fw-semibold" to="/home" title="Home">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link fw-semibold" to="/courses" title="Courses">
                 Courses
               </Link>
@@ -68,12 +73,12 @@ const NavBar = () => {
            <span onClick={handlerToggle}>
            {
               toggle ? <li className="nav-item">
-              <span className="nav-link fw-semibold">
+              <span title="Dark Mood" className="nav-link fw-semibold">
               <FaMoon ></FaMoon>
               </span>
             </li> :
               <li className="nav-item">
-              <span  className="nav-link fw-semibold">
+              <span title="Might Mood"  className="nav-link fw-semibold">
               <FaSun ></FaSun>
               </span>
             </li>

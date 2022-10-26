@@ -9,7 +9,8 @@ import { AuthContext } from "../../context/UserContext";
 
 const SignUp = () => {
   const [errors, setErrors] = useState("");
-  const {createUser,withGoogle,withGitHub,setUser,userUpdateInfo} = useContext(AuthContext);
+  const { createUser, withGoogle, withGitHub, setUser, userUpdateInfo } =
+    useContext(AuthContext);
 
   const handlerSubmit = (e) => {
     e.preventDefault();
@@ -20,66 +21,68 @@ const SignUp = () => {
     const password = form.password.value;
     console.log(name, email, password, photoUrl);
 
-    createUser(email,password)
-    .then(result => {
-      setErrors('')
-      setUser(result)
-      updateUser(name,photoUrl)
-      const user = result.user
-      console.log(user)
-    })
-    .catch(error => {
-      const errorMessage = error.message;
-      console.log(error)
-      setErrors(errorMessage)
-    })
+    createUser(email, password)
+      .then((result) => {
+        setErrors("");
+        setUser(result);
+        updateUser(name, photoUrl);
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(error);
+        setErrors(errorMessage);
+      });
   };
   // user profile and name update info
-  const updateUser = (name,photoUrl) => {
+  const updateUser = (name, photoUrl) => {
     const profile = {
-      displayName : name,
-      photoURL : photoUrl
+      displayName: name,
+      photoURL: photoUrl,
     };
     userUpdateInfo(profile)
-    .then(result => {
-      setUser(result)
-      // console.log(result.user)
-    })
-    .catch(error => {
-      const errorMessage = error.message;
-      setErrors(errorMessage)
-    })
+      .then((result) => {
+        setUser(result);
+        // console.log(result.user)
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setErrors(errorMessage);
+      });
   };
   // sign in with google
   const handlerGoogle = () => {
     withGoogle()
-    .then(result => {
-      const user = result.user
-      console.log(user)
-    })
-    .catch(error => {
-      const errorMessage = error.message;
-      console.log(error)
-      setErrors(errorMessage)
-    })
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(error);
+        setErrors(errorMessage);
+      });
   };
-  // sign in with github 
+  // sign in with github
   const handlerGithub = () => {
     withGitHub()
-    .then(result => {
-      const user = result.user
-      console.log(user)
-    })
-    .catch(error => {
-      const errorMessage = error.message;
-      console.log(error)
-      setErrors(errorMessage)
-    })
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(error);
+        setErrors(errorMessage);
+      });
   };
 
   return (
     <div className="w-75 mx-auto mt-5 shadow-lg p-3 rounded-4 mb-5 bg-light">
-      <h2 className="text-center text-success fw-bold">Sign Up <FaCheckCircle></FaCheckCircle></h2>
+      <h2 className="text-center text-success fw-bold">
+        Sign Up <FaCheckCircle></FaCheckCircle>
+      </h2>
       <p className="mt-3 text-center text-danger">
         <small>{errors}</small>
       </p>

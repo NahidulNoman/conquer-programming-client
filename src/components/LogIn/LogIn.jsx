@@ -7,11 +7,12 @@ import { AuthContext } from "../../context/UserContext";
 
 const LogIn = () => {
   const [errors, setErrors] = useState("");
-  const {signInUser,withGoogle,withGitHub,setLoading} = useContext(AuthContext);
+  const { signInUser, withGoogle, withGitHub, setLoading } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || "/";
 
   const handlerSubmit = (e) => {
     e.preventDefault();
@@ -20,52 +21,54 @@ const LogIn = () => {
     const password = form.password.value;
     console.log(email, password);
 
-    signInUser(email,password)
-    .then(result => {
-      setErrors('')
-      navigate(from , {replace : true})
-      const user = result.user
-      console.log(user)
-    })
-    .catch(error => {
-      const errorMessage = error.message;
-      setErrors(errorMessage)
-      console.log(error)
-    })
-    .finally(() => {
-      setLoading(false);
-  })
+    signInUser(email, password)
+      .then((result) => {
+        setErrors("");
+        navigate(from, { replace: true });
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setErrors(errorMessage);
+        console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
   // sign is with google
   const handlerGoogle = () => {
     withGoogle()
-    .then(result => {
-      const user = result.user
-      console.log(user)
-    })
-    .catch(error => {
-      const errorMessage = error.message;
-      setErrors(errorMessage)
-      console.log(error)
-    })
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setErrors(errorMessage);
+        console.log(error);
+      });
   };
-  // sign in with github 
+  // sign in with github
   const handlerGithub = () => {
     withGitHub()
-    .then(result => {
-      const user = result.user
-      console.log(user)
-    })
-    .catch(error => {
-      const errorMessage = error.message;
-      setErrors(errorMessage)
-      console.log(error)
-    })
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setErrors(errorMessage);
+        console.log(error);
+      });
   };
 
   return (
     <div className="w-75 mx-auto mt-5 shadow-lg p-3 rounded-4 bg-light">
-      <h2 className="text-center text-success fw-bold">Log In <FaArrowAltCircleRight></FaArrowAltCircleRight></h2>
+      <h2 className="text-center text-success fw-bold">
+        Log In <FaArrowAltCircleRight></FaArrowAltCircleRight>
+      </h2>
       <p className="mt-3 text-center text-danger">
         <small>{errors}</small>
       </p>
@@ -100,12 +103,12 @@ const LogIn = () => {
         </p>
         <div className="d-flex">
           <p className="me-3">
-            <small onClick={handlerGoogle}  className="fw-semibold opacity-75">
+            <small onClick={handlerGoogle} className="fw-semibold opacity-75">
               Log In with <Link>GooGle</Link>
             </small>
           </p>
           <p>
-            <small onClick={handlerGithub}  className="fw-semibold opacity-75">
+            <small onClick={handlerGithub} className="fw-semibold opacity-75">
               Log In with <Link>GitHub</Link>
             </small>
           </p>

@@ -13,15 +13,14 @@ const CourseDetails = () => {
 
   const ref = createRef();
 
-  const options = {
-    orientation: 'landscape',
-    unit: 'in',
-    format: [4,2]
-};
+//   const options = {
+//     unit: 'in',
+//     format: [4,2]
+// };
 
   return (
-    <div className="container mt-5 mb-5" style={{width: '100%', height: '100%'}} ref={ref} options={options} x={180} y={190} scale={2}>
-      <Card className="">
+    <div className="container mt-5 mb-5"  >
+      <Card className="" style={{width: '100%', height: '100%'}} ref={ref} >
         <Card.Header>
           <div className="d-flex justify-content-between align-item-center">
             <p className="fw-bold fs-4">{courseTittle}</p>

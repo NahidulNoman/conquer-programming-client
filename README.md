@@ -1,6 +1,6 @@
 # Getting Started And ConQuer Programming 
 
-## This website name is `ConQuer-Programming`
+## This website name is `ConQuer-Dev`
 
 Runs the app in the Live site.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -15,7 +15,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 * You can read Article from `Blog` section.
 * You can enable `Dark Mood`.
 
-# FunFact This site has implement `Backend`
+## FunFact This site has implement `Backend`
    
 ## Those technologies (frameworks, libraries) used in my project-
 
