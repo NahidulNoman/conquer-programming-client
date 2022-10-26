@@ -55,6 +55,7 @@ const UserContext = ({children}) => {
         user,
         loading,
         setUser,
+        setLoading,
         createUser,
         signInUser,
         userLogOut,

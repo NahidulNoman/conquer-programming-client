@@ -7,7 +7,7 @@ import { AuthContext } from "../../context/UserContext";
 
 const LogIn = () => {
   const [errors, setErrors] = useState("");
-  const {signInUser,withGoogle,withGitHub} = useContext(AuthContext);
+  const {signInUser,withGoogle,withGitHub,setLoading} = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -32,6 +32,9 @@ const LogIn = () => {
       setErrors(errorMessage)
       console.log(error)
     })
+    .finally(() => {
+      setLoading(false);
+  })
   };
   // sign is with google
   const handlerGoogle = () => {
