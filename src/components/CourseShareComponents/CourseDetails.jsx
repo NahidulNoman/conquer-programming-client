@@ -20,7 +20,7 @@ const CourseDetails = () => {
 };
 
   return (
-    <div className="container mt-5 mb-5" style={{width: '100%', height: '100%',}} ref={ref}>
+    <div className="container mt-5 mb-5" style={{width: '100%', height: '100%'}} ref={ref} options={options} x={180} y={190} scale={2}>
       <Card className="">
         <Card.Header>
           <div className="d-flex justify-content-between align-item-center">
@@ -34,7 +34,7 @@ const CourseDetails = () => {
           <Image className="w-50 mb-3" src={img}></Image>
           <Card.Text>
             <div>
-              <ReactToPdf targetRef={ref} filename="div-blue.pdf"  options={options} x={.5} y={.5} scale={0.8}>
+              <ReactToPdf targetRef={ref} filename="div-blue.pdf">
                 {({ toPdf }) => (
                     <button
                       onClick={toPdf}
