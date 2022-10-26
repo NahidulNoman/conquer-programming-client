@@ -3,7 +3,7 @@
 ## This website name is `ConQuer-Dev`
 
 Runs the app in the Live site.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [https://conquer-programming.web.app/](https://conquer-programming.web.app/) to view it in your browser.
 
 ## This website top `features` are explain now-
 
