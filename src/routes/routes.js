@@ -9,6 +9,7 @@ import Home from "../components/Home/Home";
 import LogIn from "../components/LogIn/LogIn";
 import SignUp from "../components/SignUp/SignUp";
 import Main from "../layout/Main";
+import PrivateRoute from "./PrivateRoute";
  
 export const router = createBrowserRouter([
     {
@@ -48,12 +49,9 @@ export const router = createBrowserRouter([
             {
                 path : '/checkOut/:id',
                 loader : async({params})=> fetch(`https://conquer-programming-server.vercel.app/courseDetails/${params.id}`) ,
-                element : <CheckOut></CheckOut>
+                element : <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
             }
         ]
     }
 ])
 
-
-// "start": "node index.js",
-//     "startDev": "nodemon index.js",

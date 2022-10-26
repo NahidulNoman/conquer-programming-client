@@ -6,11 +6,21 @@ import { FaMoon, FaSun,FaDev } from "react-icons/fa";
 import { useState } from "react";
 
 const NavBar = () => {
-  const {user} = useContext(AuthContext);
+  const {user,userLogOut} = useContext(AuthContext);
   const [toggle , setToggle] = useState(false);
 
   const handlerToggle = () => {
     setToggle(!toggle)
+  }
+
+  const handlerOut = () => {
+    userLogOut()
+    .then(() => {
+
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
 
   return (
@@ -75,7 +85,15 @@ const NavBar = () => {
 
             <li className="nav-item">
               {
-               user?.photoURL ? <Image title={user.displayName} style={{height : '40px'}} roundedCircle className="ms-3" src={user.photoURL} alt="" /> : 
+               user?.photoURL ? <div className="d-flex">
+               <Image title={user.displayName} style={{height : '40px'}} roundedCircle className="ms-3 me-3" src={user.photoURL} alt="" /> 
+               <li className="nav-item">
+              <Link onClick={handlerOut} className="nav-link fw-semibold" title="Log Out">
+                Log Out
+              </Link>
+            </li>
+               </div>
+               : 
                <Link className="nav-link fw-semibold" to="/login" title="LogIn">
                 Log In
               </Link>

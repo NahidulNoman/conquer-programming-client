@@ -78,7 +78,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="w-75 mx-auto mt-5 shadow-lg p-3 rounded-4">
+    <div className="w-75 mx-auto mt-5 shadow-lg p-3 rounded-4 mb-5 bg-light">
       <h2 className="text-center text-success fw-bold">Sign Up <FaCheckCircle></FaCheckCircle></h2>
       <p className="mt-3 text-center text-danger">
         <small>{errors}</small>

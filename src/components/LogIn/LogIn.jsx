@@ -2,12 +2,16 @@ import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { FaArrowAltCircleRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/UserContext";
 
 const LogIn = () => {
   const [errors, setErrors] = useState("");
   const {signInUser,withGoogle,withGitHub} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || '/';
 
   const handlerSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +23,7 @@ const LogIn = () => {
     signInUser(email,password)
     .then(result => {
       setErrors('')
+      navigate(from , {replace : true})
       const user = result.user
       console.log(user)
     })
@@ -56,7 +61,7 @@ const LogIn = () => {
   };
 
   return (
-    <div className="w-75 mx-auto mt-5 shadow-lg p-3 rounded-4">
+    <div className="w-75 mx-auto mt-5 shadow-lg p-3 rounded-4 bg-light">
       <h2 className="text-center text-success fw-bold">Log In <FaArrowAltCircleRight></FaArrowAltCircleRight></h2>
       <p className="mt-3 text-center text-danger">
         <small>{errors}</small>

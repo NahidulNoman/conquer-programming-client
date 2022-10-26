@@ -13,8 +13,14 @@ const CourseDetails = () => {
 
   const ref = createRef();
 
+  const options = {
+    orientation: 'landscape',
+    unit: 'in',
+    format: [4,2]
+};
+
   return (
-    <div className="container mt-5 mb-5">
+    <div className="container mt-5 mb-5" style={{width: '100%', height: '100%',}} ref={ref}>
       <Card className="">
         <Card.Header>
           <div className="d-flex justify-content-between align-item-center">
@@ -28,18 +34,18 @@ const CourseDetails = () => {
           <Image className="w-50 mb-3" src={img}></Image>
           <Card.Text>
             <div>
-              <ReactToPdf targetRef={ref} filename="div-blue.pdf">
+              <ReactToPdf targetRef={ref} filename="div-blue.pdf"  options={options} x={.5} y={.5} scale={0.8}>
                 {({ toPdf }) => (
-                  <span onClick={toPdf} className="">
                     <button
+                      onClick={toPdf}
                       type="button"
                       className="btn btn-outline-success fw-semibold"
                     >
                       DownLoad Now <FaFileDownload></FaFileDownload>
                     </button>
-                  </span>
                 )}
               </ReactToPdf>
+              {/* <div style={{width: 500, height: 500, background: 'blue'}} ref={ref}/> */}
             </div>
             <p className="fw-bold opacity-75 mt-3">{description}</p>
             <h3 className="text-primary fw-semibold">
