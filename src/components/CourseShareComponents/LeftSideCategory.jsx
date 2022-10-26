@@ -18,7 +18,7 @@ const LeftSideCategory = () => {
     <div className="mt-5">
       {category.map((perItem) => (
         <ListGroup key={perItem.id} className='mb-3 text-center'>
-          <ListGroup.Item action variant="success" className="fw-semibold">
+          <ListGroup.Item action variant="light" className="fw-semibold shadow-md">
            <span className="list"><Link to={`/courseDetails/${perItem.id}`}>{perItem.category_name}</Link></span>
           </ListGroup.Item>
         </ListGroup>

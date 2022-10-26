@@ -47,6 +47,7 @@ export const router = createBrowserRouter([
             },
             {
                 path : '/checkOut/:id',
+                loader : async({params})=> fetch(`https://conquer-programming-server.vercel.app/courseDetails/${params.id}`) ,
                 element : <CheckOut></CheckOut>
             }
         ]
