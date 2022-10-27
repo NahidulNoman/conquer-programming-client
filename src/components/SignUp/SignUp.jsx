@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import toast from "react-hot-toast";
 import { FaCheckCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/UserContext";
@@ -19,19 +20,21 @@ const SignUp = () => {
     const photoUrl = form.photoUrl.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, email, password, photoUrl);
+    // console.log(name, email, password, photoUrl);
 
     createUser(email, password)
       .then((result) => {
         setErrors("");
         setUser(result);
         updateUser(name, photoUrl);
-        const user = result.user;
-        console.log(user);
+        toast.success('Successfully Sign Up !!');
+        form.reset();
+        // const user = result.user;
+        // console.log(user);
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(error);
+        // console.log(error);
         setErrors(errorMessage);
       });
   };
@@ -73,7 +76,7 @@ const SignUp = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(error);
+        // console.log(error);
         setErrors(errorMessage);
       });
   };
@@ -89,7 +92,7 @@ const SignUp = () => {
       <Form onSubmit={handlerSubmit}>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label className="fw-semibold">Full Name</Form.Label>
-          <Form.Control name="name" type="text" placeholder="Enter full name" />
+          <Form.Control name="name" type="text" placeholder="Enter full name" required/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPhoto">
           <Form.Label className="fw-semibold">Photo URL</Form.Label>
@@ -97,6 +100,7 @@ const SignUp = () => {
             name="photoUrl"
             type="text"
             placeholder="Enter photo url"
+            required
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">

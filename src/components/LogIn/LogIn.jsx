@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import toast from "react-hot-toast";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/UserContext";
@@ -25,13 +26,15 @@ const LogIn = () => {
       .then((result) => {
         setErrors("");
         navigate(from, { replace: true });
-        const user = result.user;
-        console.log(user);
+        toast.success('Successfully Log In !!');
+        form.reset();
+        // const user = result.user;
+        // console.log(user);
       })
       .catch((error) => {
         const errorMessage = error.message;
         setErrors(errorMessage);
-        console.log(error);
+        // console.log(error);
       })
       .finally(() => {
         setLoading(false);
@@ -60,7 +63,7 @@ const LogIn = () => {
       .catch((error) => {
         const errorMessage = error.message;
         setErrors(errorMessage);
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -89,6 +92,7 @@ const LogIn = () => {
             name="password"
             type="password"
             placeholder="Password"
+            required
           />
         </Form.Group>
         <Button variant="primary" type="submit" className="fw-semibold">

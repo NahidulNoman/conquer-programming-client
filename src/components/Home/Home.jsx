@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="container mt-5">
+      {" "}
       <h2 className="text-primary fw-bold">Let's Conquer Programming...</h2>
       <p className="text-dark fw-semibold opacity-75">
         Computer programming is the process of performing a particular
@@ -18,7 +19,7 @@ const Home = () => {
         <button type="button" className="btn btn-outline-success fw-semibold">
           Go To Courses <FaArrowRight></FaArrowRight>
         </button>
-      </Link>
+      </Link>{" "}
     </div>
   );
 };
