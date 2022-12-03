@@ -38,7 +38,7 @@ const Home = () => {
             </div>
         </Col>
         <Col sm={12} lg={6}>
-          <img src={banner} className='image-fluid w-75 me-5' alt="" />
+          <img src={banner} className='img-fluid me-5' alt="" />
         </Col>
        </Row>
     </Container>
